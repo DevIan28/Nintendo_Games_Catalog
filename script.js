@@ -1,4 +1,3 @@
-// Helpers de storage
 const LS_KEY = 'favoritos';
 const getFavs = () => JSON.parse(localStorage.getItem(LS_KEY)) || [];
 const setFavs = (arr) => localStorage.setItem(LS_KEY, JSON.stringify(arr));
@@ -111,13 +110,13 @@ function syncButtons(){
     }
   });
 
-  // botón del modal (si está visible)
+  // boton del modal
   if (modalTitle.textContent){
     updateModalFavBtn(modalTitle.textContent.trim());
   }
 }
 
-// Actualiza el botón del modal según estado
+// Actualiza el boton del modal segun estado
 function updateModalFavBtn(title){
   const favs = getFavs();
   if (favs.includes(title)){

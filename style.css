@@ -88,7 +88,7 @@ body{
   .hero{min-height: 42vh}
   .img-wrap{aspect-ratio: 16/10}
 }
-/* Botón Detalles mejorado */
+/* Boton detalles */
 .btn-details {
   background: transparent;
   border: 2px solid var(--brand);
