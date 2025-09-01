@@ -1,24 +1,64 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #d00000, #000);
+}
+
+h2, h3 {
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.card img {
+  border-bottom: 3px solid #d00000;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d00000;
+}
+
+.btn-fav {
+  background: #d00000;
+  border: none;
+  color: white;
+  border-radius: 50px;
+  padding: 10px 20px;
   transition: all 0.3s ease;
 }
-.nav-link {
-  position: relative;
+.btn-fav:hover {
+  background: #a00000;
+  transform: scale(1.1);
 }
-.nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: red;
-  left: 0;
-  bottom: 0;
-  transition: width 0.3s;
+.btn-fav.added {
+  background: #28a745 !important;
 }
-.nav-link:hover::after {
-  width: 100%;
+
+#favoritos {
+  margin-top: 20px;
+}
+#favoritos li {
+  animation: fadeIn 0.5s ease;
+  border-radius: 10px;
+  margin: 5px 0;
+  font-weight: bold;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
 }
