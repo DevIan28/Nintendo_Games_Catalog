@@ -1,85 +1,245 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nintendo Games Catalog</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Nintendo</a>
-      <div class="collapse navbar-collapse">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+        <img src="images/favicon.png" alt="Nintendo Logo" width="30" height="30" class="d-inline-block align-text-top">
+          Nintendo
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navMain" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Catálogo</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#favoritos-section">Favoritos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Catálogo -->
-  <div class="container my-5">
-    <h2 class="mb-4">Nintendo Games Catalog</h2>
-    <div class="row g-4">
+  <!-- Hero -->
+  <header class="hero d-flex align-items-center">
+    <div class="container text-center">
+      <h1 class="display-5 fw-bold mb-3">Nintendo Games Catalog</h1>
+      <p class="lead mb-4">Explora clásicos, guarda tus favoritos y vuelve a ellos cuando quieras.</p>
+      <a href="#catalogo" class="btn btn-light btn-cta">Explorar catálogo</a>
+    </div>
+  </header>
+
+  <!-- Buscador -->
+  <section class="container my-5" id="catalogo">
+    <div class="row align-items-center g-3">
+      <div class="col-12 col-lg-6">
+        <h2 class="section-title m-0">Catálogo</h2>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="input-group">
+          <span class="input-group-text">🔎</span>
+          <input id="searchInput" type="text" class="form-control" placeholder="Buscar juego por nombre...">
+        </div>
+      </div>
+    </div>
+
+     <!-- Grid de juegos -->
+    <div id="gamesGrid" class="row g-4 mt-1">
+
       <!-- Mario Kart -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="images/mario.jpg" class="card-img-top" alt="Mario Kart">
-          <div class="card-body text-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 game-col" data-title="mario kart">
+        <div class="card game-card" data-title="Mario Kart" data-desc="Carreras divertidas con personajes icónicos." data-img="images/mario.jpg">
+          <div class="img-wrap">
+            <img src="images/mario.jpg" class="card-img-top" alt="Mario Kart">
+          </div>
+          <div class="card-body text-center d-flex flex-column">
             <h5 class="card-title">Mario Kart</h5>
-            <p class="card-text">Carreras divertidas con personajes icónicos.</p>
-            <button class="btn btn-fav fav-btn">❤️ Agregar a Favoritos</button>
+            <p class="card-text flex-grow-1">Carreras divertidas con personajes icónicos.</p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailsModal">ℹ️ Detalles</button>
+              <button class="btn btn-fav fav-btn">❤️ Agregar</button>
+            </div>
           </div>
         </div>
       </div>
+
       <!-- Zelda -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="images/zelda.jpg" class="card-img-top" alt="The Legend of Zelda">
-          <div class="card-body text-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 game-col" data-title="the legend of zelda">
+        <div class="card game-card" data-title="The Legend of Zelda" data-desc="Una aventura épica de acción y exploración." data-img="images/zelda.jpg">
+          <div class="img-wrap">
+            <img src="images/zelda.jpg" class="card-img-top" alt="The Legend of Zelda">
+          </div>
+          <div class="card-body text-center d-flex flex-column">
             <h5 class="card-title">The Legend of Zelda</h5>
-            <p class="card-text">Una aventura épica de acción y exploración.</p>
-            <button class="btn btn-fav fav-btn">❤️ Agregar a Favoritos</button>
+            <p class="card-text flex-grow-1">Una aventura épica de acción y exploración.</p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailsModal">ℹ️ Detalles</button>
+              <button class="btn btn-fav fav-btn">❤️ Agregar</button>
+            </div>
           </div>
         </div>
       </div>
+
       <!-- Pokémon -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="images/pokemon.jpg" class="card-img-top" alt="Pokémon">
-          <div class="card-body text-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 game-col" data-title="pokemon">
+        <div class="card game-card" data-title="Pokémon" data-desc="Atrápalos a todos en este clásico RPG." data-img="images/pokemon.jpg">
+          <div class="img-wrap">
+            <img src="images/pokemon.jpg" class="card-img-top" alt="Pokémon">
+          </div>
+          <div class="card-body text-center d-flex flex-column">
             <h5 class="card-title">Pokémon</h5>
-            <p class="card-text">Atrápalos a todos en este clásico RPG.</p>
-            <button class="btn btn-fav fav-btn">❤️ Agregar a Favoritos</button>
+            <p class="card-text flex-grow-1">Atrápalos a todos en este clásico RPG.</p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailsModal">ℹ️ Detalles</button>
+              <button class="btn btn-fav fav-btn">❤️ Agregar</button>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Smash Bros -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="images/smash.jpg" class="card-img-top" alt="Super Smash Bros">
-          <div class="card-body text-center">
+
+      <!-- Super Smash Bros -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 game-col" data-title="super smash bros">
+        <div class="card game-card" data-title="Super Smash Bros" data-desc="Batallas épicas entre personajes de Nintendo." data-img="images/smash.jpeg">
+          <div class="img-wrap">
+            <img src="images/smash.jpeg" class="card-img-top" alt="Super Smash Bros">
+          </div>
+          <div class="card-body text-center d-flex flex-column">
             <h5 class="card-title">Super Smash Bros</h5>
-            <p class="card-text">Batallas épicas entre personajes de Nintendo.</p>
-            <button class="btn btn-fav fav-btn">❤️ Agregar a Favoritos</button>
+            <p class="card-text flex-grow-1">Batallas épicas entre personajes de Nintendo.</p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailsModal">ℹ️ Detalles</button>
+              <button class="btn btn-fav fav-btn">❤️ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metroid Prime -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 game-col" data-title="metroid prime">
+        <div class="card game-card" data-title="Metroid Prime" data-desc="Exploración y acción en un mundo alienígena misterioso." data-img="images/metroid.jpeg">
+          <div class="img-wrap">
+            <img src="images/metroid.jpeg" class="card-img-top" alt="Metroid Prime">
+          </div>
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title">Metroid Prime</h5>
+            <p class="card-text flex-grow-1">Exploración y acción en un mundo alienígena misterioso.</p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailsModal">ℹ️ Detalles</button>
+              <button class="btn btn-fav fav-btn">❤️ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donkey Kong Country -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 game-col" data-title="donkey kong country">
+        <div class="card game-card" data-title="Donkey Kong Country" data-desc="Plataformas clásicas con mucha acción y bananas." data-img="images/donkey.jpeg">
+          <div class="img-wrap">
+            <img src="images/donkey.jpeg" class="card-img-top" alt="Donkey Kong Country">
+          </div>
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title">Donkey Kong Country</h5>
+            <p class="card-text flex-grow-1">Plataformas clásicas con mucha acción y bananas.</p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailsModal">ℹ️ Detalles</button>
+              <button class="btn btn-fav fav-btn">❤️ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kirby -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 game-col" data-title="kirby adventure">
+        <div class="card game-card" data-title="Kirby’s Adventure" data-desc="Un tierno héroe con poderes de copia." data-img="images/kirby.jpg">
+          <div class="img-wrap">
+            <img src="images/kirby.jpg" class="card-img-top" alt="Kirby’s Adventure">
+          </div>
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title">Kirby’s Adventure</h5>
+            <p class="card-text flex-grow-1">Un tierno héroe con poderes de copia.</p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailsModal">ℹ️ Detalles</button>
+              <button class="btn btn-fav fav-btn">❤️ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fire Emblem -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 game-col" data-title="fire emblem">
+        <div class="card game-card" data-title="Fire Emblem" data-desc="Estrategia táctica y batallas medievales." data-img="images/fireemblem.jpg">
+          <div class="img-wrap">
+            <img src="images/fireemblem.jpg" class="card-img-top" alt="Fire Emblem">
+          </div>
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title">Fire Emblem</h5>
+            <p class="card-text flex-grow-1">Estrategia táctica y batallas medievales.</p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailsModal">ℹ️ Detalles</button>
+              <button class="btn btn-fav fav-btn">❤️ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Favoritos -->
+  <section class="container my-5" id="favoritos-section">
+    <h3 class="section-title">Mis Juegos Favoritos</h3>
+    <ul id="favoritos" class="list-group"></ul>
+  </section>
+
+  <!-- Modal Detalles -->
+  <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="row g-0">
+            <div class="col-12 col-md-6">
+              <img id="modalImg" src="" alt="cover" class="w-100 h-100 object-cover rounded-start">
+            </div>
+            <div class="col-12 col-md-6 p-4">
+              <h5 id="modalTitle" class="mb-2"></h5>
+              <p id="modalDesc" class="text-muted"></p>
+              <button id="modalFavBtn" class="btn btn-fav w-100 mt-2">❤️ Agregar a Favoritos</button>
+              <button class="btn btn-outline-dark w-100 mt-2" data-bs-dismiss="modal">Cerrar</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Favoritos -->
-  <div class="container my-5">
-    <h3>Mis Juegos Favoritos</h3>
-    <ul id="favoritos" class="list-group"></ul>
+  <!-- Toast (feedback) -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div id="toastMsg" class="toast-body">Acción realizada.</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
